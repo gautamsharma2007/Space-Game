@@ -27,22 +27,22 @@ def window(red,yellow):
     win.blit(redspaceimage,(red.x,red.y))
     pygame.display.update()
 def yellow_movement(key_pressed,yellow):
-    if key_pressed[pygame.constants.K_a]:
+    if key_pressed[pygame.constants.K_a] and yellow.x-vel>0:
         yellow.x-=vel
-    if key_pressed[pygame.constants.K_d]:
+    if key_pressed[pygame.constants.K_d] and yellow.x+vel+spaceshipwidth<border.x:
         yellow.x+=vel
-    if key_pressed[pygame.constants.K_w]:
+    if key_pressed[pygame.constants.K_w] and yellow.y-vel>0:
         yellow.y-=vel
-    if key_pressed[pygame.constants.K_s]:
+    if key_pressed[pygame.constants.K_s] and yellow.y+vel+spaceshipheight<height:
         yellow.y+=vel
 def red_movement(key_pressed,red):
-    if key_pressed[pygame.constants.K_LEFT]:
+    if key_pressed[pygame.constants.K_LEFT] and red.x-vel>border.x+10:
         red.x-=vel
-    if key_pressed[pygame.constants.K_RIGHT]:
+    if key_pressed[pygame.constants.K_RIGHT] and red.x+vel+spaceshipwidth<width:
         red.x+=vel
-    if key_pressed[pygame.constants.K_UP]:
+    if key_pressed[pygame.constants.K_UP]and red.y-vel>0:
         red.y-=vel
-    if key_pressed[pygame.constants.K_DOWN]:
+    if key_pressed[pygame.constants.K_DOWN] and red.y+vel+spaceshipheight<height:
         red.y+=vel
     
 def main():
